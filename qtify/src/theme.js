@@ -10,14 +10,13 @@ const theme = createTheme({
     primary: {
       main: '#34C94B',
       light:"#FFFFFF",
-     
-      main: "#00a278",
-      dark: "#00845c",
+      dark: "#121212",
       contrastText: "#fff",
     },
     secondary: {
       main: '#121212',
-      light:"#FFFFFF"
+      light:"#FFFFFF",
+      contrastText: "#34C94B",
     },
   },
 });
