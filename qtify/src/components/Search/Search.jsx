@@ -8,7 +8,7 @@ const Search = () => {
     <TextField
       className={styles.searchbar}
       size="small"
-      placeholder="Search a albam of you choice"
+      placeholder="search a albam of you choice"
       name="search"
       InputProps={{
         endAdornment: (
