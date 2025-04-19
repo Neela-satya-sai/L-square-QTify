@@ -6,8 +6,8 @@ import theme from "./theme";
 import { Router, BrowserRouter } from "react-router-dom";
 import Hero from "./components/Hero/Hero";
 import "@fontsource/poppins";
-
-
+import SongCard from "./components/SongCard/SongCard";
+import Home from "./components/Home/Home";
 
 
 function App() {
@@ -21,8 +21,7 @@ function App() {
       </style>
       <BrowserRouter>
       <div className="App">
-        <Navbar></Navbar>
-        <Hero></Hero>
+        <Home></Home>
       </div>
       </BrowserRouter>
      

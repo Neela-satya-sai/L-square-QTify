@@ -6,7 +6,8 @@
   align-items: center;
   text-align: center;
   gap: 30px;
-  width: 100vw;
+   /* width: 100vw;  */
+  /* padding: 0px 32px; */
 }
 h1{
   color: aliceblue;

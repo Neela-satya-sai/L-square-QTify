@@ -1,0 +1,25 @@
+
+.card{
+  background-color:  #121212 !important;
+  padding: 5px;
+}
+
+
+
+.cardcontent{
+  background-color: white;
+  border-radius: 16px;
+  padding: 0px !important;
+}
+.cardmedia{
+  object-fit:fill !important;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  
+}
+.chip{
+  background-color: #121212 !important;
+  margin: 5px 0px;
+  color: white !important;
+}
+
