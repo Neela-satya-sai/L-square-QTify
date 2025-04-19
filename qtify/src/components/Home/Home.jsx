@@ -9,12 +9,15 @@ import axios from "axios";
 
 const Home = () => {
   let [topAlbums, setTopAlbums] = useState([]);
+  let [newAlbums, setNewAlbums] = useState([]);
 
 
 
 useEffect( ()=>{
   
   performAPICall();
+  // performAPICall("new");
+
  
   console.log("within usefeefect");
 
@@ -25,9 +28,12 @@ useEffect( ()=>{
 
 const performAPICall = async () => {
   try {
-    const response = await axios.get("https://qtify-backend-labs.crio.do/albums/top");
-    setTopAlbums(response.data);
-    console.log("Fetched api call", response.data);
+    const topRes = await axios.get("https://qtify-backend-labs.crio.do/albums/top");
+    const newRes = await axios.get("https://qtify-backend-labs.crio.do/albums/new");
+    setTopAlbums(topRes.data);
+    setNewAlbums(newRes.data);
+   console.log("Fetched api call", topRes.data);
+   console.log("Fetched api call", newRes.data);
     //return response.data;
   } catch (error) {
     console.error("Error performing API call:", error);
@@ -40,8 +46,8 @@ const performAPICall = async () => {
       <Navbar></Navbar>
       <Hero></Hero>
       {/* <CardGrid></CardGrid> */}
-      <CardGrid topSongsList={topAlbums} type={"Top Albums"} />
-      <CardGrid topSongsList={topAlbums}  type={"New Albums"} />
+      <CardGrid SongsList={topAlbums} type={"Top Albums"} />
+      <CardGrid SongsList={newAlbums}  type={"New Albums"} />
            <SongCard></SongCard>
     </>
   );

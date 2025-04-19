@@ -4,7 +4,7 @@ import SongCard from "../SongCard/SongCard";
 import styles from "./CardGrid.module.css";
 //import Button from "@mui/material";
 
-const CardGrid = ({ topSongsList, type }) => {
+const CardGrid = ({ SongsList, type }) => {
   // console.log("from cardgrid", topSongsList);
 
   let [show, setShow] = useState(false);
@@ -24,8 +24,8 @@ const CardGrid = ({ topSongsList, type }) => {
         <Button variant="text" onClick={handler}>{show? "Collapse" :"Show"}</Button>
       </div>
       <Grid container  className={styles.grid} columnGap={4} rowGap={3}  margin={2}>
-        {topSongsList.length > 0 ? (
-          topSongsList.map((song, idx) => (
+        {SongsList.length > 0 ? (
+          SongsList.map((song, idx) => (
             <Grid item xs={6} md={3} key={song.id}>
               <SongCard album={song} />
             </Grid>
