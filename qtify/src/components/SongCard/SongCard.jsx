@@ -14,7 +14,7 @@ const SongCard = ({ album }) => {
   }
 
   return (
-    <Card className={styles.card} sx={{ width: 175, height: 200 }}>
+    <Card className={styles.card} sx={{ width: 175, height: 230 }}>
       <CardContent className={styles.cardcontent}>
         <CardMedia
           component="img"

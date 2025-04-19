@@ -40,7 +40,8 @@ const performAPICall = async () => {
       <Navbar></Navbar>
       <Hero></Hero>
       {/* <CardGrid></CardGrid> */}
-      <CardGrid topSongsList={topAlbums} />
+      <CardGrid topSongsList={topAlbums} type={"Top Albums"} />
+      <CardGrid topSongsList={topAlbums}  type={"New Albums"} />
            <SongCard></SongCard>
     </>
   );
