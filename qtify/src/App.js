@@ -1,34 +1,59 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme";
-import { Router, BrowserRouter } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Hero from "./components/Hero/Hero";
-import "@fontsource/poppins";
-import SongCard from "./components/SongCard/SongCard";
-import Home from "./components/Home/Home";
-
+import HomePage from "./pages/HomePage/HomePage";
+import Navbar from "./components/Navbar/Navbar";
+import StyledEngineProvider from "@mui/material/StyledEngineProvider";
+import { Outlet } from "react-router-dom";
+import {
+  fetchFilters,
+  fetchNewAlbums,
+  fetchSongs,
+  fetchTopAlbums,
+} from "./api/api";
 
 function App() {
+  const [data, setData] = useState({});
+
+  // const r = {
+  //   topAlbums: [{}, {}, {}, {}],
+  //    newAlbums: [{}, {}, {}, {}],
+  //    genres: ['rock', 'pop', 'jazz'],
+  //    songs: []
+  // };
+
+  const generateData = (key, source) => {
+    source().then((data) => {
+      setData((prevState) => {
+        // Object.assign would also work
+        return { ...prevState, [key]: data };
+      });
+    });
+  };
+
+  useEffect(() => {
+    generateData("topAlbums", fetchTopAlbums);
+    generateData("newAlbums", fetchNewAlbums);
+    generateData("songs", fetchSongs);
+    generateData("genres", fetchFilters);
+  }, []);
+
+  const { topAlbums = [], newAlbums = [], songs = [], genres = [] } = data;
+
   return (
-    <ThemeProvider theme ={theme}>
-       <style>
-        {`:root {
-          --color-primary: #34C94B;
-          --color-secondary: #121212;
-        }`}
-      </style>
-      <BrowserRouter>
-      <div className="App">
-        <Home></Home>
-      </div>
-      </BrowserRouter>
-     
-    
-    
-    </ThemeProvider>
+    <>
+      <StyledEngineProvider injectFirst>
+        <Navbar searchData={[...topAlbums, ...newAlbums]} />
+        <Outlet context={{ data: { topAlbums, newAlbums, songs, genres } }} />
+      </StyledEngineProvider>
+    </>
   );
 }
+
+// {data: {
+//   topAlbums: [],
+//   newAlbums: [],
+//   genres: [],
+//   songs: []
+// }}
 
 export default App;

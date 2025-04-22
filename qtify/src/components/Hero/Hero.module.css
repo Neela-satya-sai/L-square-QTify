@@ -1,14 +1,9 @@
 .hero {
-  background-color: var( --color-secondary);
+  background-color: var(--color-black);
   height: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 30px;
-   /* width: 100vw;  */
-  /* padding: 0px 32px; */
-}
-h1{
-  color: aliceblue;
 }
